@@ -1,3 +1,3 @@
 <img width="1660" height="380" alt="header-light" src="https://github.com/user-attachments/assets/d68cf6b2-d78c-4f6b-af8a-211d16379e77" />
 
-<img src="https://img.shields.io/badge/Godot%20Engine-4.7-blue">
+<img src="https://img.shields.io/badge/Godot%20Engine-4.3-blue">
