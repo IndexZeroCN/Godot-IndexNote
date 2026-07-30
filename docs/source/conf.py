@@ -36,7 +36,6 @@ html_theme_options = {
     "repository_url": "https://github.com/IndexZeroCN/godot-fmodplayer",
     "use_repository_button": True,
     "navbar_persistent": [],
-    "navbar_end": ["theme-switcher", "navbar-icon-links"],
 }
 
 # -- Options for intersphinx extension ---------------------------------------
