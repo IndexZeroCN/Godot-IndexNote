@@ -5,9 +5,6 @@
   <a href="#platform-support">
     <img src="https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square&logo=windows" alt="Platform" />
   </a>
-  <a href="https://github.com/IndexZeroCN/Godot-IndexNote/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/IndexZeroCN/Godot-IndexNote?style=flat-square" alt="License" />
-  </a>
   <a href="https://godotengine.org">
     <img src="https://img.shields.io/badge/Godot-4.3%2B-478CBF?style=flat-square&logo=godot-engine" alt="Godot Version" />
   </a>
