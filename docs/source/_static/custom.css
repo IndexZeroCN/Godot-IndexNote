@@ -1,0 +1,6 @@
+/* Hide the search bar in navbar */
+.search-button,
+.navbar-persistent--container,
+.navbar-persistent--mobile {
+  display: none !important;
+}
