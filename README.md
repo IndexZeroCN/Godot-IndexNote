@@ -1,9 +1,7 @@
 <p align="center">
-  <!--
   <a href="https://github.com/IndexZeroCN/Godot-IndexNote/releases">
     <img src="https://img.shields.io/github/v/release/IndexZeroCN/Godot-IndexNote?include_prereleases&style=flat-square" alt="Release" />
   </a>
-  -->
   <a href="#platform-support">
     <img src="https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square&logo=windows" alt="Platform" />
   </a>
