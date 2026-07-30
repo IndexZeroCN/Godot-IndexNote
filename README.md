@@ -1,10 +1,22 @@
-<div align="center">
-
-<img width="1660" height="380" alt="header-light" src="https://github.com/user-attachments/assets/d68cf6b2-d78c-4f6b-af8a-211d16379e77" />
-
-<img src="https://img.shields.io/badge/Godot%20Engine-4.3%2B-blue"> <img src="https://img.shields.io/badge/GDExtension-C%2B%2B-478CBF?logo=c%2B%2B&logoColor=white"> <img src="https://img.shields.io/badge/Platform-Windows-lightgrey?logo=windows"> <img src="https://img.shields.io/badge/Version-0.1.0-green">
-
-</div>
+<p align="center">
+  <!--
+  <a href="https://github.com/IndexZeroCN/Godot-IndexNote/releases">
+    <img src="https://img.shields.io/github/v/release/IndexZeroCN/Godot-IndexNote?include_prereleases&style=flat-square" alt="Release" />
+  </a>
+  -->
+  <a href="#platform-support">
+    <img src="https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square&logo=windows" alt="Platform" />
+  </a>
+  <a href="https://github.com/IndexZeroCN/Godot-IndexNote/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/IndexZeroCN/Godot-IndexNote?style=flat-square" alt="License" />
+  </a>
+  <a href="https://godotengine.org">
+    <img src="https://img.shields.io/badge/Godot-4.3%2B-478CBF?style=flat-square&logo=godot-engine" alt="Godot Version" />
+  </a>
+  <a href="https://godot-indexnote.readthedocs.io">
+    <img src="https://img.shields.io/badge/docs-online-2ea44f?style=flat-square" alt="Documentation" />
+  </a>
+</p>
 
 **Index Note** 是一个基于 GDExtension（C++）的 Godot 插件，用于管理音游（节奏游戏）中的 BPM 事件、速度（流速）事件与音符轨道。它以 units（细分拍单位）为基准组织音符，并自动计算每个音符的**时间（秒）**与**位移（displacement）**，方便实现变速、变 BPM 的下落式谱面。
 
