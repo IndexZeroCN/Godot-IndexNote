@@ -1,2 +1,3 @@
 *.obj
 .sconsign.dblite
+docs/build/
