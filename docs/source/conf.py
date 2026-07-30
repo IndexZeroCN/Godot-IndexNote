@@ -30,6 +30,12 @@ language = 'zh_CN'
 html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 
+html_theme_options = {
+    "repository_url": "https://github.com/IndexZeroCN/godot-fmodplayer",
+    "use_repository_button": True,
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+}
+
 # -- Options for intersphinx extension ---------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
 
