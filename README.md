@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/github/v/release/IndexZeroCN/Godot-IndexNote?include_prereleases&style=flat-square" alt="Release" />
   </a>
   <a href="#platform-support">
-    <img src="https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square&logo=windows" alt="Platform" />
+    <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Android-lightgrey?style=flat-square" alt="Platform" />
   </a>
   <a href="https://godotengine.org">
     <img src="https://img.shields.io/badge/Godot-4.3%2B-478CBF?style=flat-square&logo=godot-engine" alt="Godot Version" />
@@ -84,6 +84,8 @@ track.update_displacements(0)
 
 ## Building from Source
 
+### Windows
+
 Requires Python and SCons. The repository includes `godot-cpp` as a submodule:
 
 ```bash
@@ -93,3 +95,41 @@ scons target=template_debug  # Debug template
 ```
 
 Output goes to `addons/index-note/bin/`.
+
+### Android
+
+Build scripts are provided for convenience: `build_android.bat` (Windows) and `build_android.sh` (Linux/macOS).
+
+**Prerequisites:**
+
+- Android NDK 23.2.8568313 installed at `%ANDROID_HOME%\ndk\23.2.8568313\`
+- `ANDROID_HOME` environment variable set (defaults to `E:\AndroidSDK` in the scripts)
+- Python and SCons
+
+**Build commands:**
+
+```bash
+# Manually with scons (build for arm64, debug template)
+scons platform=android target=template_debug arch=arm64 ANDROID_HOME=%ANDROID_HOME%
+
+# Or use the build script
+build_android.bat all       # Windows: build debug + release for arm64, arm32, x86_64
+./build_android.sh all      # Linux/macOS: same as above
+```
+
+Output `.so` files go to `addons/index-note/bin/`.
+
+**Android project setup:**
+
+Before exporting, ensure these prerequisites are met in the Godot editor:
+
+- **Android Export Templates** installed via **Editor > Manage Export Templates...** (download the Android template package).
+- **Android SDK** set up (via Android Studio, or set `ANDROID_HOME`).
+
+Then configure the project:
+
+1. Copy the `addons/index-note` directory into your project (same as desktop).
+2. The `.gdextension` file already includes library paths for `arm64`, `arm32`, and `x86_64` — no extra config needed.
+3. Install the Android build template: **Project > Install Android Build Template...**
+4. Create an **Android export preset**, scroll to **Gradle Build** and set **Use Gradle Build** to `true`.
+5. Enable the plugin in **Project > Project Settings > Plugins**.

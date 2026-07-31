@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/github/v/release/IndexZeroCN/Godot-IndexNote?include_prereleases&style=flat-square" alt="Release" />
   </a>
   <a href="#platform-support">
-    <img src="https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square&logo=windows" alt="Platform" />
+    <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Android-lightgrey?style=flat-square" alt="Platform" />
   </a>
   <a href="https://godotengine.org">
     <img src="https://img.shields.io/badge/Godot-4.3%2B-478CBF?style=flat-square&logo=godot-engine" alt="Godot Version" />
@@ -80,9 +80,11 @@ track.remove_note_at(0)
 track.update_displacements(0)
 ```
 
-> 注意：`add_note` 会自动按 `units` 保持轨道有序，并从插入位置起重算后续音符；若时间列表已在 NoteTrack 中，请在NoteTrack中进行事件的修改，否则在直接修改 BPM / 速度事件列表后，请调用 `update_displacements(0)` 刷新。
+> 注意：`add_note` 会自动按 `units` 保持轨道有序，并从插入位置起重算后续音符；若时间列表已在 NoteTrack 中，请在 NoteTrack 中进行事件的修改，否则在直接修改 BPM / 速度事件列表后，请调用 `update_displacements(0)` 刷新。
 
 ## 从源码构建
+
+### Windows
 
 需要 Python 与 SCons。仓库以子模块形式包含 `godot-cpp`：
 
@@ -93,3 +95,41 @@ scons target=template_debug  # 调试模板
 ```
 
 产物输出到 `addons/index-note/bin/`。
+
+### Android
+
+提供了便捷构建脚本：`build_android.bat`（Windows）和 `build_android.sh`（Linux/macOS）。
+
+**前置要求：**
+
+- Android NDK 23.2.8568313 安装到 `%ANDROID_HOME%\ndk\23.2.8568313\`
+- 设置 `ANDROID_HOME` 环境变量（脚本中默认为 `E:\AndroidSDK`）
+- Python 与 SCons
+
+**构建命令：**
+
+```bash
+# 手动使用 scons（构建 arm64，调试模板）
+scons platform=android target=template_debug arch=arm64 ANDROID_HOME=%ANDROID_HOME%
+
+# 或使用构建脚本
+build_android.bat all       # Windows：构建调试 + 发布版，覆盖 arm64、arm32、x86_64
+./build_android.sh all      # Linux/macOS：同上
+```
+
+产物 `.so` 文件输出到 `addons/index-note/bin/`。
+
+**Android 项目配置：**
+
+导出前，请确保 Godot 编辑器中已满足以下前置条件：
+
+- 通过 **编辑器 > 管理导出模板...** 安装 **Android 导出模板**（下载 Android 模板包）。
+- 已配置 **Android SDK**（可通过 Android Studio 安装，或设置 `ANDROID_HOME` 环境变量）。
+
+然后配置项目：
+
+1. 将 `addons/index-note` 目录复制到你的项目中（与桌面平台相同）。
+2. `.gdextension` 文件已包含 `arm64`、`arm32`、`x86_64` 的库路径，无需额外配置。
+3. 安装 Android 构建模板：**项目 > 安装 Android 构建模板...**
+4. 创建 **Android 导出预设**，滚动到 **Gradle Build**，将 **Use Gradle Build** 设为 `true`。
+5. 在 **项目 > 项目设置 > 插件** 中启用插件。

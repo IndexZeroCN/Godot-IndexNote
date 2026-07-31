@@ -14,4 +14,20 @@
 --------
 
 - **Godot Engine** 4.3 或更高版本
-- **Windows** 平台（当前版本仅提供 Windows 构建产物）
+- **Windows** / **Android** 平台
+
+Android 导出配置
+----------------
+
+导出 Android 项目需要以下前置准备：
+
+- **Android 导出模板**：通过 **编辑器 > 管理导出模板...** 下载安装。
+- **Android SDK**：通过 Android Studio 安装，或设置 ``ANDROID_HOME`` 环境变量。
+
+然后配置 Godot 的 Gradle 构建系统：
+
+1. 安装 Android 构建模板：**项目 > 安装 Android 构建模板...**
+2. 创建 **Android 导出预设**，在 **Gradle Build** 中将
+   **Use Gradle Build** 设为 ``true``。
+3. ``.gdextension`` 文件已包含 ``arm64``、``arm32``、``x86_64``
+   架构的库路径，导出时会自动包含对应架构的 ``.so`` 文件。

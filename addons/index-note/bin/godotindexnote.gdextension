@@ -9,3 +9,10 @@ reloadable = true
 windows.editor.x86_64 = "res://addons/index-note/bin/godotindexnote.windows.editor.x86_64.dll"
 windows.template_debug.x86_64 = "res://addons/index-note/bin/godotindexnote.windows.template_debug.x86_64.dll"
 windows.template_release.x86_64 = "res://addons/index-note/bin/godotindexnote.windows.template_release.x86_64.dll"
+
+android.template_debug.arm64 = "res://addons/index-note/bin/libgodotindexnote.android.template_debug.arm64.so"
+android.template_release.arm64 = "res://addons/index-note/bin/libgodotindexnote.android.template_release.arm64.so"
+android.template_debug.arm32 = "res://addons/index-note/bin/libgodotindexnote.android.template_debug.arm32.so"
+android.template_release.arm32 = "res://addons/index-note/bin/libgodotindexnote.android.template_release.arm32.so"
+android.template_debug.x86_64 = "res://addons/index-note/bin/libgodotindexnote.android.template_debug.x86_64.so"
+android.template_release.x86_64 = "res://addons/index-note/bin/libgodotindexnote.android.template_release.x86_64.so"
