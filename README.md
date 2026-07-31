@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="README_CN.md">中文</a>
+  <a href="README_ZH-CN.md">简体中文</a>
 </p>
 
 **Index Note** is a Godot plugin built with GDExtension (C++) for managing BPM events, speed events, and note tracks in rhythm games. It organizes notes based on **units** (subdivided beat units) and automatically computes each note's **time (seconds)** and **displacement**, making it easy to implement variable speed and variable BPM scrolling charts.
