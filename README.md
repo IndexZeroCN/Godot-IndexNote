@@ -124,7 +124,7 @@ Output `.so` files go to `addons/index-note/bin/`.
 Before exporting, ensure these prerequisites are met in the Godot editor:
 
 - **Android Export Templates** installed via **Editor > Manage Export Templates...** (download the Android template package).
-- **Android SDK** set up (via Android Studio, or set `ANDROID_HOME`).
+- **Android SDK** set up (via Android Studio).
 
 Then configure the project:
 

@@ -22,7 +22,7 @@ Android 导出配置
 导出 Android 项目需要以下前置准备：
 
 - **Android 导出模板**：通过 **编辑器 > 管理导出模板...** 下载安装。
-- **Android SDK**：通过 Android Studio 安装，或设置 ``ANDROID_HOME`` 环境变量。
+- **Android SDK**：通过 Android Studio 安装。
 
 然后配置 Godot 的 Gradle 构建系统：
 

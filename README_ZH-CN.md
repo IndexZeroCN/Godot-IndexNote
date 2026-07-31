@@ -124,7 +124,7 @@ build_android.bat all       # Windows：构建调试 + 发布版，覆盖 arm64�
 导出前，请确保 Godot 编辑器中已满足以下前置条件：
 
 - 通过 **编辑器 > 管理导出模板...** 安装 **Android 导出模板**（下载 Android 模板包）。
-- 已配置 **Android SDK**（可通过 Android Studio 安装，或设置 `ANDROID_HOME` 环境变量）。
+- 已配置 **Android SDK**（可通过 Android Studio 安装）。
 
 然后配置项目：
 
