@@ -1,5 +1,4 @@
-*.obj
-*.os
 .sconsign.dblite
 docs/build/
-addons/index-note/bin/*.so
+src/**/*.os
+src/**/*.obj
