@@ -160,7 +160,7 @@ double SpeedEventList::get_speed(double p_secs) const {
     if (index == -1) {
         if (_events.empty()) return _init_speed;
 
-        return _events[0]->speed_start;
+        return _init_speed;
     }
 
     Ref<SpeedEvent> event = _events[index];
@@ -192,7 +192,7 @@ double SpeedEventList::get_displacement(double p_secs) const {
     if (index == -1) {
         if (_events.empty()) return _init_speed * p_secs;
 
-        return _events[0]->speed_start * p_secs;
+        return _init_speed * p_secs;
     }
 
     Ref<SpeedEvent> event = _events[index];
@@ -297,7 +297,7 @@ void SpeedEventList::update_displacements(int from) {
 
     if (from == 0) {
         Ref<SpeedEvent> event = _events[0];
-        event->pre_displacement = event->speed_start * bpm_events->get_secs(event->units_start);
+        event->pre_displacement = _init_speed * bpm_events->get_secs(event->units_start);
         from++;
     }
 
