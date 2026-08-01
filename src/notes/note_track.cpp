@@ -38,7 +38,7 @@ void NoteTrack::_bind_methods() {
     ClassDB::bind_method(D_METHOD("remove_speed_event_at", "index"), &NoteTrack::remove_speed_event_at);
     ClassDB::bind_method(D_METHOD("add_speed", "units_start", "units_end", "speed_start", "speed_end"), &NoteTrack::add_speed);
 
-    ClassDB::bind_method(D_METHOD("update_displacements"), &NoteTrack::update_displacements_and_secs);
+    ClassDB::bind_method(D_METHOD("update_displacements_and_secs"), &NoteTrack::update_displacements_and_secs, DEFVAL(true));
 }
 
 Ref<NoteTrack> NoteTrack::create(
@@ -75,6 +75,10 @@ void NoteTrack::add_note(Ref<NoteKey> p_note) {
 
     int units = p_note->units;
     int i = _notes.size() - 1;
+    double secs = bpm_events->get_secs(p_note->units);
+
+    p_note->secs = secs;
+    p_note->displacement = speed_events->get_displacement(secs);
 
     _notes.push_back(p_note);
 
@@ -89,7 +93,7 @@ void NoteTrack::add_note(Ref<NoteKey> p_note) {
     if (sort_note_by_displacement)
         _notes_sorted_by_displacement.push_back(p_note);
 
-    update_displacements_and_secs(insert_index);
+    update_displacements_and_secs(insert_index, false);
 }
 
 bool NoteTrack::remove_note(Ref<NoteKey> p_note) {
@@ -269,7 +273,7 @@ void NoteTrack::add_speed(int p_units_start, int p_units_end, double p_speed_sta
     update_displacements_and_secs();
 }
 
-void NoteTrack::update_displacements_and_secs(int from) {
+void NoteTrack::update_displacements_and_secs(int p_from, bool p_update_ori) {
     if (speed_events.is_null()) {
         UtilityFunctions::push_error("speed_events is null");
         return;
@@ -277,12 +281,14 @@ void NoteTrack::update_displacements_and_secs(int from) {
 
     int size = _notes.size();
 
-    for (int i = from; i < size; i++) {
-        Ref<NoteKey> note = _notes[i];
-        double secs = bpm_events->get_secs(note->units);
+    if (p_update_ori) {
+        for (int i = p_from; i < size; i++) {
+            Ref<NoteKey> note = _notes[i];
+            double secs = bpm_events->get_secs(note->units);
 
-        note->secs = secs;
-        note->displacement = speed_events->get_displacement(secs);
+            note->secs = secs;
+            note->displacement = speed_events->get_displacement(secs);
+        }
     }
 
     if (sort_note_by_displacement)

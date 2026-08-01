@@ -58,7 +58,7 @@ public:
     void remove_speed_event_at(int p_index);
     void add_speed(int p_units_start, int p_units_end, double p_speed_start, double p_speed_end);
 
-    void update_displacements_and_secs(int from = 0);
+    void update_displacements_and_secs(int p_from = 0, bool p_update_ori = true);
         
 };
 
